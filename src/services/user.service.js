@@ -66,10 +66,20 @@ const getPatientsFromStatus = async (status) => {
   return User.find({ _id: { $in: patientIds } });
 };
 
+/**
+ * Get user by email
+ * @param {string} email
+ * @returns {Promise<User>}
+ */
+const getUserByEmail = async (email) => {
+  return User.findOne({ email });
+};
+
 module.exports = {
   createDoctor,
   createPatient,
   createReport,
   queryReports,
   getPatientsFromStatus,
+  getUserByEmail
 };
